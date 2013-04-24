@@ -1,5 +1,7 @@
 package at.tugraz.mobilforum;
 
+import java.sql.ResultSet;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -19,11 +21,11 @@ public class LoginActivity extends Activity {
 
         tv.setText("Mobile Forum");
         AccessDataBase db = new AccessDataBase();
-        ResultSet rs = db.ReturnQuery("select count(*) as num from test where a='1'");
-        while (rs.next()) {
-            countRows = rs.getInt("num");
-        }
-        System.out.println(countRows);
+//        ResultSet rs = db.ReturnQuery("select count(*) as num from test where a='1'");
+//        while (rs.next()) {
+//            countRows = rs.getInt("num");
+//        }
+//        System.out.println(countRows);
         
         
         

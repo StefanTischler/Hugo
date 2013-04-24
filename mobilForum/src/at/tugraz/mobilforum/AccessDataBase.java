@@ -3,11 +3,13 @@ package at.tugraz.mobilforum;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.database.SQLException;
 
 public class AccessDataBase {
 
@@ -19,6 +21,25 @@ public class AccessDataBase {
 	AccessDataBase(){
 		this.Connect();
 	}
+	public Map<Integer, String> getCategories(){
+		ResultSet rs =  this.ReturnQuery("Select * from categories");
+		int categoryID;
+		String categoryName;
+		Map<Integer, String> categories = new HashMap<Integer, String>();
+		try {
+			while(rs.next()){
+				categoryID = rs.getInt("catid");
+				categoryName = rs.getString("catname");
+				categories.put(categoryID, categoryName);
+			}
+		} catch (java.sql.SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return null;
+		}
+		return categories;
+	}
+
 	public int approveUser(String username, String password){
 		ResultSet rs =  this.ReturnQuery("Select userid from users where username=" + username + " and password =" + password);
 		String userid = "";

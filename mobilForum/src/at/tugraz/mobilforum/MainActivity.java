@@ -25,13 +25,14 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.e(TAG, "test");
-		categorys = new HashMap<Integer, String>();
-		categorys.put(0,"Cat 1");
-		categorys.put(1,"Cat 2");
-		categorys.put(2,"Cat 3");
-		categorys.put(3,"Cat 4");
-		categorys.put(4,"Cat 5");
-		categorys.put(5,"Cat 6");
+//		categorys = new HashMap<Integer, String>();
+//		categorys.put(0,"Cat 1");
+//		categorys.put(1,"Cat 2");
+//		categorys.put(2,"Cat 3");
+//		categorys.put(3,"Cat 4");
+//		categorys.put(4,"Cat 5");
+//		categorys.put(5,"Cat 6");
+		categorys = new AccessDataBase().getCategories(); // TODO singelton
 		showCategories();
 	}
 
