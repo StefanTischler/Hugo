@@ -29,11 +29,9 @@ public class MainActTest extends ActivityInstrumentationTestCase2<MainActivity> 
 	
 	@UiThreadTest
 	public void testCategoryView(){
-		//LinearLayout categoryList = (LinearLayout)getActivity().findViewById(R.id.categoryList);
-		//assertNotNull(categoryList);
 		Log.e(TAG, getActivity().getFilesDir().toString());
 		Log.e(TAG, getActivity().getPackageName());
-		LinearLayout ll = (LinearLayout)solo.getView(R.id.categoryList);
+		LinearLayout ll = (LinearLayout)solo.getView(R.id.category_list);
 		assertNotNull(ll);
 	}
 	
