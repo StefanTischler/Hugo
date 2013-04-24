@@ -10,7 +10,7 @@
 
 
     <Button
-        android:id="@+id/categories_login_button"
+        android:id="@+id/topics_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -18,18 +18,18 @@
         android:text="@string/login" />
 
     <TextView
-        android:id="@+id/categories_header"
+        android:id="@+id/topics_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/categories_login_button"
-        android:layout_alignLeft="@+id/category_list"
-        android:layout_alignTop="@+id/categories_login_button"
-        android:layout_toLeftOf="@+id/categories_login_button"
+        android:layout_alignLeft="@+id/topic_list"
+        android:layout_alignTop="@+id/topics_login_button"
+        android:layout_toLeftOf="@+id/topics_login_button"
         android:gravity="center"
         android:text="@string/app_name" />
 	
     <LinearLayout
-        android:id="@+id/category_list"
+        android:id="@+id/topic_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
@@ -43,8 +43,8 @@
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         android:layout_height="1dp"
-        android:layout_alignBottom="@+id/categories_login_button"
-        android:layout_alignLeft="@+id/categories_header"
+        android:layout_alignBottom="@+id/topics_login_button"
+        android:layout_alignLeft="@+id/topics_header"
         android:background="@android:color/darker_gray" />
 
 </RelativeLayout>

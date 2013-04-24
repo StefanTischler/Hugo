@@ -1,13 +1,17 @@
 package at.tugraz.mobilforum;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import android.os.Bundle;
 import android.app.Activity;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -15,18 +19,19 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
 	public static final String TAG = "mforum";
-	public static List<String> categoryList; // todo 
+	public static Map<Integer, String> categorys; // todo 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		Log.e(TAG, "test");
-		categoryList = new LinkedList<String>();
-		categoryList.add("Cat 1");
-		categoryList.add("Cat 2");
-		categoryList.add("Cat 3");
-		categoryList.add("Cat 4");
-		categoryList.add("Cat 5");
+		categorys = new HashMap<Integer, String>();
+		categorys.put(0,"Cat 1");
+		categorys.put(1,"Cat 2");
+		categorys.put(2,"Cat 3");
+		categorys.put(3,"Cat 4");
+		categorys.put(4,"Cat 5");
+		categorys.put(5,"Cat 6");
 		showCategories();
 	}
 
@@ -36,14 +41,27 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+
+	private void showTopics(int categoryId){
+		setContentView(R.layout.topics);
+		// TODO continue
+	}
 	
 	private void showCategories(){
 		setContentView(R.layout.categorys);
 		LinearLayout categoryListView = (LinearLayout)findViewById(R.id.category_list);
-		for(String category : categoryList){
+		for(int categoryId : categorys.keySet()){
 			Button categoryView = new Button(this);
-			categoryView.setText(category);
+			categoryView.setText(categorys.get(categoryId));
 			categoryView.setGravity(Gravity.CENTER);
+			final int catID = categoryId;
+			categoryView.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View arg0) {
+					showTopics(catID);
+				}
+			});
 			categoryListView.addView(categoryView);
 		}
 		
