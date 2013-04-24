@@ -48,7 +48,7 @@ public class MainActivity extends Activity {
 	}
 	
 	private void showCategories(){
-		setContentView(R.layout.categorys);
+		setContentView(R.layout.categories);
 		LinearLayout categoryListView = (LinearLayout)findViewById(R.id.category_list);
 		for(int categoryId : categorys.keySet()){
 			Button categoryView = new Button(this);
